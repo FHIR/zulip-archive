@@ -22,7 +22,9 @@ inputs:
     description: 'Branch where to commit archive files (should coincide with GH Pages branch)'
     # legacy
     required: false
-    default: 'master'
+    default: 'gh-pages'
+  site_url:
+    description: 'URL where site will be hosted'
 runs:
   using: 'docker'
   image: 'Dockerfile'

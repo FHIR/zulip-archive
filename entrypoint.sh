@@ -35,9 +35,9 @@ pip3 install pyyaml==5.2
 pip3 install crudini
 
 # GitHub pages API is in Preview mode. This might break in future.
-#auth_header="Authorization: Bearer ${github_personal_access_token}"
-#accept_header="Accept: application/vnd.github.switcheroo-preview+json"
-#page_api_url="https://api.github.com/repos/${GITHUB_REPOSITORY}/pages"
+auth_header="Authorization: Bearer ${github_personal_access_token}"
+accept_header="Accept: application/vnd.github.switcheroo-preview+json"
+page_api_url="https://api.github.com/repos/${GITHUB_REPOSITORY}/pages"
 # Enable GitHub pages
 #curl -H "$auth_header" -H "$accept_header" --data "{\"source\":{\"branch\":\"${archive_branch}\"}}" "$page_api_url"
 
