@@ -33,3 +33,4 @@ runs:
     - ${{ inputs.github_personal_access_token }}
     - ${{ inputs.delete_history }}
     - ${{ inputs.archive_branch }}
+    - ${{ inputs.site_url }}
