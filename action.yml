@@ -13,7 +13,8 @@ inputs:
     required: true
   github_personal_access_token:
     description: 'GitHub personal access token'
-    required: true
+    required: false
+    default: 'none'
   delete_history:
     description: 'If enabled, will delete the archive history while keeping the most recent version'
     required: false
