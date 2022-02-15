@@ -5,9 +5,10 @@ zulip_organization_url=$1
 zulip_bot_email=$2
 zulip_bot_api_key=$3
 github_personal_access_token=$4
-delete_history=$5
-archive_branch=$6
-site_url=$7
+github_actions_token=$5
+delete_history=$6
+archive_branch=$7
+site_url=$8
 
 checked_out_repo_path="$(pwd)"
 html_dir_path=$checked_out_repo_path
@@ -94,7 +95,7 @@ git config --global user.name "Archive Bot"
 git add -A
 git commit -m "Update archive."
 
-git remote add origin2 https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}
+git remote add origin2 https://x-access-token:${github_actions_token}@github.com/${GITHUB_REPOSITORY}
 
 git push origin2 HEAD:$archive_branch -f
 

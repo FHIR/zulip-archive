@@ -15,7 +15,11 @@ inputs:
     description: 'GitHub personal access token'
     required: false
     default: 'none'
-  delete_history:
+  github_actions_token:
+    description: 'GitHub Actions Token'
+    required: false
+    default: 'none'
+   delete_history:
     description: 'If enabled, will delete the archive history while keeping the most recent version'
     required: false
     default: false
@@ -34,6 +38,7 @@ runs:
     - ${{ inputs.zulip_bot_email }}
     - ${{ inputs.zulip_bot_key }}
     - ${{ inputs.github_personal_access_token }}
+    - ${{ inputs.github_actions_token }}
     - ${{ inputs.delete_history }}
     - ${{ inputs.archive_branch }}
     - ${{ inputs.site_url }}
