@@ -45,7 +45,7 @@ from .url import (
 )
 
 def to_topic_page_head_html(page_head_html, title):
-    return page_head_html.replace("{{title}}", title)
+    return page_head_html.replace("{{title}}", " · " + title)
 
 def build_website(
     json_root,
@@ -243,7 +243,7 @@ def write_topic_messages(
     # search engine indexing.
     outfile.write(
         to_topic_page_head_html(
-            html.escape(topic_name) + " · " + html.escape(stream_name) + " · " + title
+            page_head_html, html.escape(topic_name) + " · " + html.escape(stream_name)
         )
     )
     outfile.write(topic_links)
