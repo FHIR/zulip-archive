@@ -117,7 +117,7 @@ def build_website(
     copy_tree(str(Path(repo_root) / "assets"), str(Path(md_root) / "assets"))
 
     # Copy .nojekyll into md_root as well.
-    copyfile(str(Path(repo_root) / ".nojekyll"), str(Path(md_root) / ".nojekyll"))
+    # copyfile(str(Path(repo_root) / ".nojekyll"), str(Path(md_root) / ".nojekyll"))
 
 
 # writes the index page listing all streams.
