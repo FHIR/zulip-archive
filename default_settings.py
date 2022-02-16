@@ -97,13 +97,13 @@ else:
 This is where you modify the <head> section of every page.
 """
 page_head_html = (
-    '<html>\n<head><meta charset="utf-8"><title>Zulip Chat Archive</title></head>\n'
+    '---\nlayout: page\ntitle: FHIR Chat Logs\n---\n\n'
 )
 
 """
 This is where you modify the <footer> section of every page.
 """
-page_footer_html = "\n</html>"
+page_footer_html = "\n"
 
 
 """
