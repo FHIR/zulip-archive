@@ -44,10 +44,8 @@ from .url import (
     archive_stream_url,
 )
 
-
-def to_topic_page_head_html(title):
-    return f'<html>\n<head><meta charset="utf-8"><title>{title}</title></head>\n'
-
+def to_topic_page_head_html(page_head_html, title):
+    return page_head_html.replace("{{title}}", title)
 
 def build_website(
     json_root,

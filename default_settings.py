@@ -97,7 +97,7 @@ else:
 This is where you modify the <head> section of every page.
 """
 page_head_html = (
-    '---\nlayout: page\ntitle: FHIR Chat Logs\n---\n\n'
+    '---\nlayout: page\ntitle: "FHIR Chat {{title}}"\n---\n\n'
 )
 
 """
