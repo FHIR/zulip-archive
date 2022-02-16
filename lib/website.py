@@ -143,7 +143,9 @@ def write_main_page(
     content_html = stream_list_page_html(streams)
 
     outfile.write(page_head_html.replace("[[title]]", ""))
+    outfile.write("{% raw %}")
     outfile.write(content_html)
+    outfile.write("{% endraw %}")
     outfile.write(date_footer_html)
     outfile.write(page_footer_html)
     outfile.close()
@@ -180,7 +182,9 @@ def write_stream_topics(
     content_html = topic_list_page_html(stream_name, stream_url, topic_data)
 
     outfile.write(page_head_html.replace("[[title]]", ""))
+    outfile.write("{% raw %}")
     outfile.write(content_html)
+    outfile.write("{% endraw %}")
     outfile.write(date_footer_html)
     outfile.write(page_footer_html)
     outfile.close()
@@ -246,6 +250,8 @@ def write_topic_messages(
             page_head_html, html.escape(topic_name) + " · " + html.escape(stream_name)
         )
     )
+    outfile.write("{% raw %}")
+
     outfile.write(topic_links)
     outfile.write(
         f'\n<head><link href="{html.escape(site_url)}/style.css" rel="stylesheet"></head>\n'
@@ -264,7 +270,7 @@ def write_topic_messages(
         )
         outfile.write(msg_html)
         outfile.write("\n\n")
-
+    outfile.write("{% endraw %}")
     outfile.write(date_footer_html)
     outfile.write(page_footer_html)
     outfile.close()
