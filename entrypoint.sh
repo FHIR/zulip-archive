@@ -22,7 +22,10 @@ if [ ! -f $streams_config_file_path ]; then
     exit 1
 fi
 
-cd "/zulip-archive-action"
+
+git checkout $archive_branch
+
+pushd "/zulip-archive-action"
 
 # GitHub pages API is in Preview mode. This might break in future.
 auth_header="Authorization: Bearer ${github_personal_access_token}"
@@ -62,15 +65,10 @@ else
     python3 archive.py -i
 fi
 
-
 python3 archive.py -b
-
-cd ${checked_out_repo_path}
-
-git checkout $archive_branch
+popd
 
 git fetch origin
-
 current_sha="$(git rev-parse origin/${archive_branch})"
 
 if [[ "$current_sha" != "$initial_sha" ]]
