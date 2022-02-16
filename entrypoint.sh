@@ -15,7 +15,6 @@ html_dir_path=$checked_out_repo_path
 json_dir_path="${checked_out_repo_path}/zulip_json"
 img_dir_path="${checked_out_repo_path}/assets/img"
 streams_config_file_path="${checked_out_repo_path}/streams.yaml"
-initial_sha="$(git rev-parse HEAD)"
 
 if [ ! -f $streams_config_file_path ]; then
     echo "Missing streams.yaml file."
@@ -24,8 +23,9 @@ fi
 
 
 git checkout $archive_branch
+initial_sha="$(git rev-parse HEAD)"
 
-pushd "/zulip-archive-action"
+cd "/zulip-archive-action"
 
 # GitHub pages API is in Preview mode. This might break in future.
 auth_header="Authorization: Bearer ${github_personal_access_token}"
@@ -66,7 +66,7 @@ else
 fi
 
 python3 archive.py -b
-popd
+cd checked_out_repo_path
 
 git fetch origin
 current_sha="$(git rev-parse origin/${archive_branch})"
