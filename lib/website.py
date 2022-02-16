@@ -45,7 +45,7 @@ from .url import (
 )
 
 def to_topic_page_head_html(page_head_html, title):
-    return page_head_html.replace("{{title}}", " · " + title)
+    return page_head_html.replace("[[title]]", " · " + title)
 
 def build_website(
     json_root,
@@ -142,7 +142,7 @@ def write_main_page(
 
     content_html = stream_list_page_html(streams)
 
-    outfile.write(page_head_html)
+    outfile.write(page_head_html.replace("[[title]]", ""))
     outfile.write(content_html)
     outfile.write(date_footer_html)
     outfile.write(page_footer_html)
@@ -179,7 +179,7 @@ def write_stream_topics(
 
     content_html = topic_list_page_html(stream_name, stream_url, topic_data)
 
-    outfile.write(page_head_html)
+    outfile.write(page_head_html.replace("[[title]]", ""))
     outfile.write(content_html)
     outfile.write(date_footer_html)
     outfile.write(page_footer_html)
