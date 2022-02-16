@@ -94,7 +94,7 @@ def format_message_html(
     out_html = f"""
 {anchor_html}
 <h4>{zulip_link_html} {html.escape(user_name)} <a href="{html.escape(anchor_url)}">({html.escape(date)})</a>:</h4>
-{msg_content_html}
+{msg_content_html.replace("endraw", "")}
 """
     return out_html
 
